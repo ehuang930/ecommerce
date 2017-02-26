@@ -1,23 +1,30 @@
-<h1>Welcome to Emmie's World of Tech</h1>
-<p>Where the world of tomorrow comes to life!</p>
+<div class="jumbotron">
+	<h1>Welcome to Emery's World of Tech</h1>
+	<h3><center>Bringing the world of tomorrow to you!</center></h3>
+</div>
 
 <div class="row">
 	<% @products.each do |product| %>
 		<div class="col-md-4">
 			<div class="panel panel-default">
 				<div class="panel-body">
-					<div style="height: 150px;">
+					<div style="height:120px; margin-top: 20px;">
 						<center><%= image_tag product.image.url(:thumb) %></center>
 					</div>
 					
-					<p><a href="#" data-toggle="modal" data-target="#myModal_<%= product.id %>">
-						<span class="glyphicon glyphicon-plus"></span>Quick Info
-					</a></p>
+					<p>
+					<a href="#" data-toggle="modal" data-target="#myModal_<%= product.id %>">
+						<span class="glyphicon glyphicon-plus"></span>More Info
+					</a>
+					</p>
 
 					<p><strong><%= number_to_currency product.price %></strong></p>
-					<p><%= product.description %></p>
-				</div>
+					
+					<!--<h5><%= link_to product.name, product %></h5>-->
+					<h5><%= product.name %></h5>
+
 					<p>Made by: <%= product.brand %></p>
+					
 					<p>
 						<%= form_tag('/add_to_cart') do %>
 						<div class="hidden">
@@ -25,13 +32,13 @@
 							</div>
 							<p>
 								<%= number_field_tag :quantity, nil, min: 1, placeholder: "How Many?" %></p>
-								<p><%= submit_tag "Buy It!", class: "btn btn-danger" %></p>
+								<p><%= submit_tag "Buy", class: "btn btn-danger" %></p>
 								<% end %> 
 					</p>
 			</div>
 			
 		</div>
-
+</div>
 
 		<!-- Modal -->
 <div class="modal fade" id="myModal_<%= product.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
