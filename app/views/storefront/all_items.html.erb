@@ -7,7 +7,7 @@
 			<div class="panel panel-default">
 				<div class="panel-body">
 					<div style="height: 150px;">
-						<%= image_tag product.image.url(:thumb) %>
+						<center><%= image_tag product.image.url(:thumb) %></center>
 					</div>
 					
 					<p><a href="#" data-toggle="modal" data-target="#myModal_<%= product.id %>">
@@ -31,6 +31,7 @@
 			</div>
 			
 		</div>
+
 
 		<!-- Modal -->
 <div class="modal fade" id="myModal_<%= product.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
